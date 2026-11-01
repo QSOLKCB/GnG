@@ -1,0 +1,13 @@
+Gremlins & Goblins
+Copyright 2026 Trent Slade / QSOL-IMC contributors
+
+Original browser game, characters, maps, pixel artwork and synthesised audio.
+The project uses the repository's Apache License 2.0.
+
+Ghosts 'n Goblins is a historical gameplay inspiration, associated with Capcom.
+No original game code, ROMs, maps, sprites, fonts or audio samples are included.
+This independent game is not affiliated with or endorsed by Capcom.
+
+QSOLKCB/ARCADE informed the buildless distribution, fixed-step simulation,
+forgiving mode, and Pages deployment approach. Runtime code and assets here
+were authored for GnG. IAOpen, Z.Corp and Throwafit are fictional satire.
