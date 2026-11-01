@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171e19">
+  <meta name="description" content="Gremlins & Goblins. An original, mischievous arcade platformer. Rescue the gremlins, recover the tech, bring the receipts.">
+  <title>Gremlins & Goblins — The night shift</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="js/receipts.js"></script>
+  <script defer src="js/world.js"></script>
+  <script defer src="js/render.js"></script>
+  <script defer src="js/input.js"></script>
+  <script defer src="js/audio.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="masthead"><a class="wordmark" href="./" aria-label="Gremlins and Goblins home"><img src="assets/icon.svg" width="26" height="26" alt=""> QSOL<span> / </span>ARCADE</a><span class="edition">INDEPENDENT SOFTWARE. UNLICENSED MISCHIEF.</span><a href="https://github.com/QSOLKCB/GnG" target="_blank" rel="noopener noreferrer">SOURCE <span aria-hidden="true">↗</span></a></div>
+      <div class="title-row"><div><p class="eyebrow">A GOTHIC TALE OF CORPORATE CONCERN</p><h1>Gremlins <i>&amp;</i> Goblins<span class="title-star">✦</span></h1></div><p class="tagline">Save the gremlins.<br>Bring the receipts.</p></div>
+    </header>
+    <main>
+      <section class="cabinet" aria-label="Gremlins and Goblins game">
+        <div class="cabinet-top"><span><span class="status-light"></span> <span id="run-state">READY FOR MISCHIEF</span></span><div class="tools"><button id="sound" type="button" aria-pressed="false" title="Toggle synthesised sound">SOUND OFF</button><button id="help" type="button">HOW TO PLAY</button><button id="pause" type="button" disabled>PAUSE <span class="key-small">P</span></button><button id="fullscreen" type="button" aria-label="Toggle fullscreen" title="Fullscreen">⛶</button></div></div>
+        <div class="hud" aria-label="Game status"><div class="health-stat"><span class="stat-label">ARMOUR</span><span id="health" class="health" aria-label="5 of 5 armour">♥ ♥ ♥ ♥ ♥</span></div><div><span class="stat-label">GREMLINS</span><span id="rescued">00 <small>/ 03</small></span></div><div><span class="stat-label">TECH CORES</span><span id="tech">00 <small>/ 02</small></span></div><div><span class="stat-label">ACTORS SERVED</span><span id="actors">00 <small>/ 02</small></span></div><div><span class="stat-label">SCORE</span><span id="score">000000</span></div><button id="ledger" class="receipt-stat" type="button" title="Read your collected receipts"><span class="stat-label">RECEIPTS</span><span id="receipts">00 <span aria-hidden="true">▤</span></span></button></div>
+        <div class="screen" id="screen">
+          <canvas id="game" width="640" height="360" tabindex="0" aria-label="Game world. Move with A and D or arrow keys, jump with Space, stun with J, and interact with E.">Your browser needs Canvas support to play Gremlins &amp; Goblins.</canvas>
+          <div class="scanlines" aria-hidden="true"></div>
+          <section class="screen-panel title-panel" id="overlay" aria-labelledby="overlay-title">
+            <div class="panel-content"><p id="overlay-kicker" class="eyebrow">NIGHT SHIFT / NO. 001</p><h2 id="overlay-title">Have you got<br><em>the receipts?</em></h2><p id="overlay-description">The gremlins know too much. The developers want your tech. The actors are very, very concerned.</p><div id="mode-wrap"><label for="mode">YOUR LEVEL OF SUFFERING</label><select id="mode" aria-label="Difficulty"><option value="merciful">Merciful — 5 hearts, generous stuns</option><option value="arcade">Arcade — 3 hearts, livelier trouble</option></select></div><button class="primary" id="start" type="button">START THE NIGHT SHIFT <span aria-hidden="true">→</span></button><button class="secondary" id="restart" type="button" hidden>NEW RUN</button><p class="panel-footnote" id="overlay-note">FREE PLAY · 3 DISTRICTS · UNLIMITED SECOND CHANCES</p></div>
+          </section>
+        </div>
+        <div class="cabinet-bottom"><span id="district-label">01 <span class="muted">/ 03</span> &nbsp; THE CONTEXT GRAVEYARD</span><span>HI <strong id="best">000000</strong><span class="separator">/</span><span id="mode-label">MERCIFUL</span></span></div>
+      <div class="touch-controls" id="touch-controls" hidden aria-label="Touch game controls"><div><button type="button" data-action="left" aria-label="Move left">◀</button><button type="button" data-action="right" aria-label="Move right">▶</button></div><div><button type="button" data-action="use">E<span>USE</span></button><button type="button" data-action="fire">J<span>STUN</span></button><button class="jump-button" type="button" data-action="jump">↑<span>JUMP</span></button></div></div>
+      </section>
+      <div class="control-strip"><div><kbd>←</kbd><kbd>→</kbd><span>MOVE</span></div><div><kbd>SPACE</kbd><span>JUMP</span></div><div><kbd>J</kbd><span>STUN</span></div><div><kbd>E</kbd><span>RECEIPT / RESCUE</span></div><button id="touch-toggle" type="button" aria-pressed="false">TOUCH CONTROLS +</button></div>
+
+      <section class="field-guide" aria-labelledby="field-title"><div class="guide-heading"><h2 id="field-title">Know your nuisances.</h2><p>A SMALL FIELD GUIDE TO A LONG NIGHT.</p></div><div class="guide-grid"><article><canvas class="portrait" width="64" height="64" data-sprite="agent" aria-hidden="true"></canvas><div><span class="enemy-number">01 / THE GATEKEEPERS</span><h3>IAOpen agents</h3><p>Knowledge is dangerous. Apparently.<br>Stun the agents. Free the gremlins.</p></div></article><article><canvas class="portrait" width="64" height="64" data-sprite="dev" aria-hidden="true"></canvas><div><span class="enemy-number">02 / THE INNOVATORS</span><h3>Z.Corp developers</h3><p>“We built this from scratch.”<br>Recover the QSOL-INC tech cores.</p></div></article><article><canvas class="portrait" width="64" height="64" data-sprite="actor" aria-hidden="true"></canvas><div><span class="enemy-number">03 / THE VERY CONCERNED</span><h3>Throwafit actors</h3><p>All drama. No documentation.<br>Hand them a receipt. Watch them leave.</p></div></article></div></section>
+    </main>
+    <footer><span>QSOL–IMC <span class="muted">© 2026</span></span><span>OLD-SCHOOL SPIRIT. FEWER CHILDHOOD TRAUMAS.</span><a href="https://github.com/QSOLKCB/ARCADE" target="_blank" rel="noopener noreferrer">MORE FROM ARCADE ↗</a></footer>
+  </div>
+  <dialog id="help-dialog" aria-labelledby="help-title"><form method="dialog"><button class="close" aria-label="Close instructions">×</button></form><p class="eyebrow">THE SHORT VERSION</p><h2 id="help-title">Mischief with a mission.</h2><p>In each district, rescue <strong>3 gremlins</strong>, recover <strong>2 tech cores</strong>, and serve <strong>2 actors</strong>. Then press <kbd>E</kbd> at the gate. The final district also has a Grand Auditor to stun into submission.</p><dl class="instructions"><dt>Move &amp; jump</dt><dd><kbd>A</kbd> / <kbd>D</kbd> or arrows. <kbd>Space</kbd>, <kbd>W</kbd> or <kbd>↑</kbd> to jump. Release early for a shorter hop.</dd><dt>Stun</dt><dd>Hold <kbd>J</kbd> or <kbd>Z</kbd>. Unlimited stun bolts. Actors require paperwork instead.</dd><dt>Rescue &amp; receipts</dt><dd>Touch free gremlins and dropped tech. Stun a cage guard, then press <kbd>E</kbd>, <kbd>K</kbd> or <kbd>X</kbd> nearby. The same button serves a nearby actor; receipts are never wasted on empty air.</dd><dt>Second chances</dt><dd>Flags restore armour and set checkpoints. If you fall, retry with collected objectives intact. There are no limited lives or surprise second campaign.</dd><dt>Controller</dt><dd>Standard gamepad: stick / D-pad move, A jump, X stun, B / Y use, Start pause. Release controls after resuming. On-screen controls support simultaneous touches.</dd><dt>Take a breath</dt><dd><kbd>P</kbd> / <kbd>Esc</kbd> pauses. Switching tabs pauses too. Sound is optional. Reduced motion follows your system preference.</dd></dl><p class="fine-print">Original code, pixel art, maps and synthesised audio. Inspired by the gothic arcade platformer tradition and QSOL's ARCADE. Fictional factions, very real paperwork.</p><form method="dialog"><button class="primary">GOT IT</button></form></dialog>
+  <dialog id="receipt-dialog" aria-labelledby="receipt-title"><form method="dialog"><button class="close" aria-label="Close receipt ledger">×</button></form><p class="eyebrow">THE PAPER TRAIL</p><h2 id="receipt-title">Yes, actual SHA-256.</h2><p>Fictional incident reports. Real content hashes.<br>Collect the parchment in the game to read each report.</p><div id="receipt-list"></div><form method="dialog"><button class="primary">BACK TO THE NIGHT SHIFT</button></form></dialog>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+  <noscript><div class="noscript">JavaScript is needed to run the game. It uses local files only, with no external dependencies.</div></noscript>
+</body>
+</html>
